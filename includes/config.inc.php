@@ -20,7 +20,7 @@ $pages = [
         'title' => 'Főoldal'
     ],
     'about-us' => [
-        'file'  => 'aboutus',
+        'file'  => 'about-us',
         'title' => 'Bemutatkozás'
     ],
     'contact'    => [

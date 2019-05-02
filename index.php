@@ -3,10 +3,10 @@
 include('./includes/config.inc.php');
 
 $query = current($pages);
-$page = empty($_GET['page']) ? '' : $_GET['page'];
+$page = empty($_GET['page']) ? '/' : $_GET['page'];
 
 if (!empty($page)) {
-    if (isset($pages[$page]) && file_exists("./templates/pages/{$pages[$page]['file']}.tpl.php")) {
+    if (isset($pages[$page]) && file_exists("./templates/{$pages[$page]['file']}.tpl.php")) {
         $query = $pages[$page];
     }
     else {
@@ -14,5 +14,8 @@ if (!empty($page)) {
         header("HTTP/1.0 404 Not Found");
     }
 }
+
+//var_dump($query);
+//die();
 
 include('./templates/index.tpl.php');

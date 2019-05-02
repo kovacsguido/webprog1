@@ -1,3 +1,6 @@
+<?php
+    $content = file_get_contents('./templates/' . $query['file'] . '.tpl.php');
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,7 +18,10 @@
         .head .jumbotron {margin-bottom: 1rem; padding: 1rem 2rem;}
         .head .jumbotron hr.my-4 {margin-top: 1rem !important; margin-bottom: 1rem !important;}
         .head .jumbotron p {margin-bottom: 0; text-align: justify;}
-        .navbar.bg-light {background-color: #e9ecef !important;}
+        .navbar.bg-light {background-color: #e9ecef !important; margin-bottom: 1rem;}
+        .content {background-color: #e9ecef !important; padding: 1rem;}
+        .content hr.my-4 {margin-top: 0 !important; margin-bottom: .8rem !important;}
+        .content p {text-align: justify;}
     </style>
 </head>
 <body>
@@ -68,7 +74,7 @@
     </div>
     <div class="row">
         <div class="col-sm">
-            One of three columns
+            <div class="content"><?php echo $content; ?></div>
         </div>
     </div>
 </div>
