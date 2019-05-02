@@ -2,6 +2,10 @@
 
 include('./includes/config.inc.php');
 
+// Connect to database
+$dbh = new PDO('mysql:host=' . $dbHost . ';dbname=' . $dbName, $dbUsername, $dbPassword, array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+$dbh->query('SET NAMES ' . $dbCharset . ' COLLATE ' . $dbCollation);
+
 $query = current($pages);
 $page = empty($_GET['page']) ? '/' : $_GET['page'];
 
@@ -14,8 +18,5 @@ if (!empty($page)) {
         header("HTTP/1.0 404 Not Found");
     }
 }
-
-//var_dump($query);
-//die();
 
 include('./templates/index.tpl.php');
