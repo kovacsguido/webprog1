@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title><?php echo $windowTitle; ?></title>
     <style>
         .main.container {padding: 1rem;}
         .head .jumbotron {margin-bottom: 1rem; padding: 1rem 2rem;}
         .head .jumbotron hr.my-4 {margin-top: 1rem !important; margin-bottom: 1rem !important;}
-        .head .jumbotron p {margin-bottom: 0;}
+        .head .jumbotron p {margin-bottom: 0; text-align: justify;}
+        .navbar.bg-light {background-color: #e9ecef !important;}
     </style>
 </head>
 <body>
@@ -23,9 +24,9 @@
     <div class="head row">
         <div class="col-sm">
             <div class="jumbotron">
-                <h1 class="display-5">Hello, world!</h1>
+                <h1 class="display-5"><?php echo $windowTitle; ?></h1>
                 <hr class="my-4">
-                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <p class="lead"><?php echo $headDetails['slogan']; ?></p>
             </div>
         </div>
     </div>
@@ -42,24 +43,24 @@
                             <a class="nav-link" href="/">Főoldal</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link 1</a>
+                            <a class="nav-link" href="/?page=about-us"><?php echo $pages['about-us']['title']; ?></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link 2</a>
+                            <a class="nav-link" href="/?page=gallery"><?php echo $pages['gallery']['title']; ?></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link 3</a>
+                            <a class="nav-link" href="/?page=videos"><?php echo $pages['videos']['title']; ?></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link 4</a>
+                            <a class="nav-link" href="/?page=contact"><?php echo $pages['contact']['title']; ?></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link 5</a>
+                            <a class="nav-link" href="/?page=login"><?php echo $pages['login']['title']; ?></a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Keresés..." aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Keres</button>
+                        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Keres</button>
                     </form>
                 </div>
             </nav>

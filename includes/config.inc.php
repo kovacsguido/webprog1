@@ -1,19 +1,17 @@
 <?php
 
-$windowTitle = [
-    'text' => 'Mini honlap Kft.',
-];
+$windowTitle = 'Dabasi Táncsics Mihály Gimnázium';
 
 $headDetails = [
     'imgSource' => 'logo.png',
     'imgAlt'    => 'logo',
     'title'     => 'Mini honlap',
-    'slogan'    => ''
+    'slogan'    => 'Ez az oldal a Dabasi Táncsics Mihály Gimnázium alapítványának az oldalaként készült egyetemi beadandó feladatként. <a href="http://www.dagim.hu/" target="_blank">Az eredeti oldal elérhető ezen a linken.</a>'
 ];
 
 $footerDetails = [
     'copyright' => 'Copyright ' . date("Y") . '.',
-    'company'   => 'Mini honlap Kft.'
+    'company'   => 'Dabasi Táncsics Mihály Gimnázium'
 ];
 
 $pages = [
@@ -36,6 +34,10 @@ $pages = [
     'videos'     => [
         'file'  => 'videos',
         'title' => 'Videók'
+    ],
+    'login'     => [
+        'file'  => 'login',
+        'title' => 'Belépés'
     ]
 ];
 
