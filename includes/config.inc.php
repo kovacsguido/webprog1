@@ -9,20 +9,18 @@ $dbCharset   = 'utf8';
 $dbCollation = 'utf8_hungarian_ci';
 
 // Title of window
-$windowTitle = 'Dabasi Táncsics Mihály Gimnázium';
+$windowTitle = 'Táncsics Alapítvány';
 
 // Details of head
 $headDetails = [
-    'imgSource' => 'logo.png',
-    'imgAlt'    => 'logo',
-    'title'     => 'Mini honlap',
-    'slogan'    => 'Ez az oldal a Dabasi Táncsics Mihály Gimnázium alapítványának az oldalaként készült egyetemi beadandó feladatként. <a href="http://www.dagim.hu/" target="_blank">Az eredeti oldal elérhető ezen a linken.</a>'
+    'title'     => 'Táncsics Alapítvány',
+    'slogan'    => 'Ez az oldal a Dabasi Táncsics Mihály Gimnázium alapítványának az oldalaként készült, egy egyetemi beadandó feladat részeként. <a href="http://www.dagim.hu/" target="_blank">Az eredeti oldal elérhető ezen a linken.</a>'
 ];
 
 // Details of footer
 $footerDetails = [
     'copyright' => 'Copyright ' . date("Y"),
-    'company'   => 'Dabasi Táncsics Mihály Gimnázium'
+    'company'   => 'Táncsics Alapítvány'
 ];
 
 // Pages

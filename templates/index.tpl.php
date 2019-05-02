@@ -23,6 +23,7 @@
         .content hr.my-4 {margin-top: 0 !important; margin-bottom: .8rem !important;}
         .content p {text-align: justify;}
         footer {background-color: #e9ecef !important; border-radius: .3rem; margin-bottom: 1rem; text-align: center;}
+        fieldset {background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 1rem; padding: 1rem;}
 
         .gsc-control-cse {background-color: transparent !important; border: none !important; padding: 0 !important; width: 250px !important;}
         .gsc-search-button-v2 {border-radius: .3rem !important; padding: 9px 27px !important;}
@@ -35,7 +36,7 @@
     <div class="head row">
         <div class="col-sm">
             <div class="jumbotron">
-                <h1 class="display-5"><?php echo $windowTitle; ?></h1>
+                <h1 class="display-5"><?php echo $headDetails['title']; ?></h1>
                 <hr class="my-4">
                 <p class="lead"><?php echo $headDetails['slogan']; ?></p>
             </div>
