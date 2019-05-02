@@ -1,0 +1,66 @@
+version: '2'
+
+services:
+    web1_app:
+        image: kovacsguido/php
+        container_name: web1_app
+        hostname: app
+        volumes:
+            - .:/app
+        command: "true"
+
+    web1_data:
+        image: mysql:5.7
+        container_name: web1_data
+        hostname: data
+        volumes:
+            - /srv/data/mysql.egyetem.web1:/var/lib/mysql
+        command: "true"
+
+    web1_db:
+        image: mysql:5.7
+        container_name: web1_db
+        hostname: db
+        ports:
+            - "3306:3306"
+        volumes_from:
+            - web1_data
+        environment:
+            MYSQL_DATABASE: webprog1
+            MYSQL_USER: webprog1user
+            MYSQL_PASSWORD: U39voeyMYwszUBb6
+            MYSQL_ROOT_PASSWORD: tyURX61HVvedBr6V
+
+    web1_web:
+        image: kovacsguido/nginx
+        container_name: web1_web
+        hostname: web
+        ports:
+            - "80:80"
+        links:
+            - web1_php
+        volumes:
+            - ./etc/docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+        volumes_from:
+            - web1_app
+
+    web1_php:
+        image: kovacsguido/php
+        container_name: web1_php
+        hostname: php
+        volumes:
+            - ./etc/docker/php/php.ini:/usr/local/etc/php/php.ini
+            - ./etc/docker/php/opcache.conf:/usr/local/etc/php/conf.d/opcache.conf
+        volumes_from:
+            - web1_app
+
+    web1_pma:
+        image: phpmyadmin/phpmyadmin
+        container_name: web1_pma
+        hostname: pma
+        ports:
+            - "8080:80"
+        links:
+            - web1_db
+        environment:
+            PMA_HOST: db
