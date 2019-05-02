@@ -10,7 +10,7 @@ $headDetails = [
 ];
 
 $footerDetails = [
-    'copyright' => 'Copyright ' . date("Y") . '.',
+    'copyright' => 'Copyright ' . date("Y"),
     'company'   => 'Dabasi Táncsics Mihály Gimnázium'
 ];
 
@@ -22,6 +22,10 @@ $pages = [
     'about-us' => [
         'file'  => 'about-us',
         'title' => 'Bemutatkozás'
+    ],
+    'community-service' => [
+        'file'  => 'community-service',
+        'title' => 'Közösségi szolgálat'
     ],
     'contact'    => [
         'file'  => 'contact',

@@ -18,10 +18,15 @@
         .head .jumbotron {margin-bottom: 1rem; padding: 1rem 2rem;}
         .head .jumbotron hr.my-4 {margin-top: 1rem !important; margin-bottom: 1rem !important;}
         .head .jumbotron p {margin-bottom: 0; text-align: justify;}
-        .navbar.bg-light {background-color: #e9ecef !important; margin-bottom: 1rem;}
-        .content {background-color: #e9ecef !important; padding: 1rem;}
+        .navbar.bg-light {background-color: #e9ecef !important; border-radius: .3rem; margin-bottom: 1rem;}
+        .content {background-color: #e9ecef !important; border-radius: .3rem; padding: 1rem;}
         .content hr.my-4 {margin-top: 0 !important; margin-bottom: .8rem !important;}
         .content p {text-align: justify;}
+        footer {background-color: #e9ecef !important; border-radius: .3rem; margin-bottom: 1rem; text-align: center;}
+
+        .gsc-control-cse {background-color: transparent !important; border: none !important; padding: 0 !important; width: 250px !important;}
+        .gsc-search-button-v2 {border-radius: .3rem !important; padding: 9px 27px !important;}
+        .gsc-input-box {border-radius: .3rem !important;}
     </style>
 </head>
 <body>
@@ -52,6 +57,9 @@
                             <a class="nav-link" href="/?page=about-us"><?php echo $pages['about-us']['title']; ?></a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="/?page=community-service"><?php echo $pages['community-service']['title']; ?></a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/?page=gallery"><?php echo $pages['gallery']['title']; ?></a>
                         </li>
                         <li class="nav-item">
@@ -64,10 +72,23 @@
                             <a class="nav-link" href="/?page=login"><?php echo $pages['login']['title']; ?></a>
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
+                    <!-- form class="form-inline my-2 my-lg-0" method="post">
                         <input class="form-control mr-sm-2" type="search" placeholder="Keresés..." aria-label="Search">
                         <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Keres</button>
-                    </form>
+                    </form //-->
+                    <script>
+                        (function() {
+                            var cx = '015623446626408757465:eyv1jxqyziu';
+                            var gcse = document.createElement('script');
+                            gcse.type = 'text/javascript';
+                            gcse.async = true;
+                            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                            var s = document.getElementsByTagName('script')[0];
+                            s.parentNode.insertBefore(gcse, s);
+                        })();
+                    </script>
+                    <gcse:search></gcse:search>
+
                 </div>
             </nav>
         </div>
@@ -77,6 +98,12 @@
             <div class="content"><?php echo $content; ?></div>
         </div>
     </div>
+</div>
+
+<div class="container">
+    <footer class="footer p-2">
+        <span class="text-muted"><?php echo $footerDetails['copyright'] . ' &#8211; ' . $footerDetails['company']; ?></span>
+    </footer>
 </div>
 
 <!-- Optional JavaScript -->
