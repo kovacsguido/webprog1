@@ -1,6 +1,3 @@
-<?php
-    $content = file_get_contents('./templates/' . $query['file'] . '.tpl.php');
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -24,6 +21,7 @@
         .content p {text-align: justify;}
         footer {background-color: #e9ecef !important; border-radius: .3rem; margin-bottom: 1rem; text-align: center;}
         fieldset {background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 1rem; padding: 1rem;}
+        .toast {}
 
         .gsc-control-cse {background-color: transparent !important; border: none !important; padding: 0 !important; width: 250px !important;}
         .gsc-search-button-v2 {border-radius: .3rem !important; padding: 9px 27px !important;}
@@ -99,7 +97,7 @@
     </div>
     <div class="row">
         <div class="col-sm">
-            <div class="content"><?php echo $content; ?></div>
+            <div class="content"><?php include('./templates/' . $query['file'] . '.tpl.php'); ?></div>
         </div>
     </div>
 </div>
@@ -144,6 +142,17 @@ if (!empty($_SESSION['message'])) {
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function() {
+        $('.image-to-modal').on('click', function(e) {
+            e.preventDefault();
+            $('#imagepreview').attr('src', $('.image-to-modal img').attr('src'));
+            $('#imagemodal').modal('show');
+        });
+    });
+</script>
+
 <?php if (!empty($_SESSION['message'])): ?>
 <script>
     $('.toast').toast('show');

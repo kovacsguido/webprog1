@@ -1,2 +1,6 @@
 # PhpStorm
 .idea/
+
+# Project
+/gallery/*
+!/gallery/.gitkeep
