@@ -36,6 +36,9 @@
     <div class="head row">
         <div class="col-sm">
             <div class="jumbotron">
+                <?php if (!empty($_SESSION['user'])): ?>
+                <span class="text-muted float-right">Bejelentkezett: <?php echo $_SESSION['user']['lastname'] . ' ' . $_SESSION['user']['firstname'] . ' (' . $_SESSION['user']['username'] . ')'; ?></span>
+                <?php endif; ?>
                 <h1 class="display-5"><?php echo $headDetails['title']; ?></h1>
                 <hr class="my-4">
                 <p class="lead"><?php echo $headDetails['slogan']; ?></p>
@@ -70,13 +73,13 @@
                             <a class="nav-link" href="/?page=contact"><?php echo $pages['contact']['title']; ?></a>
                         </li>
                         <li class="nav-item">
+                            <?php if (empty($_SESSION['user'])): ?>
                             <a class="nav-link" href="/?page=login"><?php echo $pages['login']['title']; ?></a>
+                            <?php else: ?>
+                            <a class="nav-link" href="/?action=logout">Kilépés</a>
+                            <?php endif; ?>
                         </li>
                     </ul>
-                    <!-- form class="form-inline my-2 my-lg-0" method="post">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Keresés..." aria-label="Search">
-                        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Keres</button>
-                    </form //-->
                     <script>
                         (function() {
                             var cx = '015623446626408757465:eyv1jxqyziu';
@@ -107,6 +110,29 @@
     </footer>
 </div>
 
+<?php
+if (!empty($_SESSION['message'])) {
+    $toastHeaderBgClass = 'bg-info';
+    if ($_SESSION['success'] === true) {
+        $toastHeaderBgClass = 'bg-success';
+    }
+    elseif ($_SESSION['success'] === false) {
+        $toastHeaderBgClass = 'bg-danger';
+    }
+?>
+<div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-autohide="false" style="position: absolute; top: 1rem; right: 1rem;">
+    <div class="toast-header <?php echo $toastHeaderBgClass; ?>">
+        <strong class="mr-auto text-white">Üzenet</strong>
+        <button type="button" class="ml-2 mb-1 close text-white" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-body">
+        <?php echo $_SESSION['message']; ?>
+    </div>
+</div>
+<?php } ?>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -118,5 +144,14 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+<?php if (!empty($_SESSION['message'])): ?>
+<script>
+    $('.toast').toast('show');
+</script>
+<?php
+    $_SESSION['message'] = '';
+endif;
+?>
+
 </body>
 </html>

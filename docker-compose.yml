@@ -63,4 +63,4 @@ services:
         links:
             - web1_db
         environment:
-            PMA_HOST: db
+            PMA_HOST: web1_db
