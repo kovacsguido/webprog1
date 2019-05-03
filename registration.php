@@ -21,7 +21,7 @@ if (!empty($lastname) && !empty($firstname) && !empty($username) && !empty($user
         $dbh->query('SET NAMES ' . $dbCharset . ' COLLATE ' . $dbCollation);
 
         // Check username
-        $sqlSelect = "SELECT id FROM users where username = :username";
+        $sqlSelect = "SELECT id FROM users WHERE username = :username";
         $sth = $dbh->prepare($sqlSelect);
         $sth->execute([':username' => $username]);
 
